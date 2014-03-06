@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "myerp_api"
-  s.version = "0.0.1"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Didier Baquier"]
@@ -24,14 +24,30 @@ Gem::Specification.new do |s|
     "lib/ext/date.rb",
     "lib/ext/hash.rb",
     "lib/ext/time.rb",
+    "lib/myerp/account.rb",
+    "lib/myerp/api/accounts.rb",
     "lib/myerp/api/base.rb",
+    "lib/myerp/api/currencies.rb",
     "lib/myerp/api/customers.rb",
+    "lib/myerp/api/item_families.rb",
+    "lib/myerp/api/items.rb",
+    "lib/myerp/api/payment_terms.rb",
+    "lib/myerp/api/projects.rb",
+    "lib/myerp/api/sales_orders.rb",
+    "lib/myerp/api/transactions.rb",
     "lib/myerp/base.rb",
     "lib/myerp/credentials.rb",
     "lib/myerp/crud.rb",
+    "lib/myerp/currency.rb",
     "lib/myerp/customer.rb",
     "lib/myerp/errors.rb",
+    "lib/myerp/item.rb",
+    "lib/myerp/item_family.rb",
     "lib/myerp/model.rb",
+    "lib/myerp/payment_term.rb",
+    "lib/myerp/project.rb",
+    "lib/myerp/sales_order.rb",
+    "lib/myerp/transaction.rb",
     "lib/myerp_api.rb",
     "myerp_api.gemspec"
   ]

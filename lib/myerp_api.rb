@@ -15,8 +15,8 @@ require 'myerp/credentials'
 require 'myerp/errors'
 require 'myerp/base'
 
-%w(model crud customer).each {|a| require "myerp/#{a}"}
-%w(base customers).each {|a| require "myerp/api/#{a}"}
+%w(model crud account currency customer item item_family payment_term project sales_order transaction).each {|a| require "myerp/#{a}"}
+%w(base accounts currencies customers items item_families payment_terms projects sales_orders transactions).each {|a| require "myerp/api/#{a}"}
 
 module MyERP
   VERSION = File.read(File.expand_path(File.join(File.dirname(__FILE__), '..', 'VERSION'))).strip
