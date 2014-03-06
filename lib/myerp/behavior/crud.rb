@@ -24,9 +24,14 @@ module MyERP
       end
 
       def delete(model)
-        raise "model unsaved" unless !model.new?
-        resp = request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
-        MyERP::Response.new(resp.headers, api_model.parse(resp.parsed_response).first)
+        if model.is_a?(Array)
+          resp = request(:delete, credentials, "#{api_model.api_path}", :body => model.to_json)
+          MyERP::Response.new(resp.headers, api_model.parse(resp.parsed_response))
+        else
+          raise "model unsaved" unless !model.new?
+          resp = request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
+          MyERP::Response.new(resp.headers, api_model.parse(resp.parsed_response).first)
+        end
       end
     end
   end
