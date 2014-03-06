@@ -3,7 +3,7 @@ module MyERP
     class Customers < Base
       api_model MyERP::Customer
 
-      include MyERP::Behavior::Crud
+      include MyERP::Crud
     end
   end
 end

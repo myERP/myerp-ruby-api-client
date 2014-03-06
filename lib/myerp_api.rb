@@ -15,8 +15,7 @@ require 'myerp/credentials'
 require 'myerp/errors'
 require 'myerp/base'
 
-%w(crud).each {|a| require "myerp/behavior/#{a}"}
-%w(model customer).each {|a| require "myerp/#{a}"}
+%w(model crud customer).each {|a| require "myerp/#{a}"}
 %w(base customers).each {|a| require "myerp/api/#{a}"}
 
 module MyERP
