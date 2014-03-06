@@ -16,6 +16,10 @@ module MyERP
         inner_json
       end
 
+      def new?
+        id.nil?
+      end
+
       def to_i; id; end
 
       def ==(other)

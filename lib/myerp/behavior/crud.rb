@@ -27,8 +27,9 @@ module MyERP
       end
 
       def delete(model)
-        request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
-        model.to_i
+	raise "model unsaved" unless !model.new?
+	response = request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
+	api_model.parse(response.parsed_response).first
       end
     end
   end
