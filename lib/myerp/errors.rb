@@ -22,4 +22,7 @@ module MyERP
   class BadRequest < HTTPError; end
   class ServerError < HTTPError; end
   class AuthenticationFailed < HTTPError ; end
+  class UnprocessableEntity < HTTPError; end
+  class MissingField < HTTPError; end
+  class Conflict < HTTPError; end
 end
