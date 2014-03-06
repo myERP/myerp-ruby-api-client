@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Didier Baquier"]
-  s.date = "2014-03-05"
+  s.date = "2014-03-06"
   s.description = "The myERP API gem is a lightweight gem for accessing the myERP REST web services"
   s.email = "didier.baquier@myerp.com"
   s.extra_rdoc_files = [
@@ -20,18 +20,19 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "lib/MyERP/api/base.rb",
-    "lib/MyERP/api/customers.rb",
-    "lib/MyERP/base.rb",
-    "lib/MyERP/behavior/crud.rb",
-    "lib/MyERP/credentials.rb",
-    "lib/MyERP/customer.rb",
-    "lib/MyERP/errors.rb",
-    "lib/MyERP/model.rb",
     "lib/ext/array.rb",
     "lib/ext/date.rb",
     "lib/ext/hash.rb",
     "lib/ext/time.rb",
+    "lib/myerp/api/base.rb",
+    "lib/myerp/api/customers.rb",
+    "lib/myerp/base.rb",
+    "lib/myerp/behavior/crud.rb",
+    "lib/myerp/credentials.rb",
+    "lib/myerp/customer.rb",
+    "lib/myerp/errors.rb",
+    "lib/myerp/model.rb",
+    "lib/myerp/response.rb",
     "lib/myerp_api.rb",
     "myerp_api.gemspec"
   ]
