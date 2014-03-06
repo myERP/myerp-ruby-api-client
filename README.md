@@ -27,18 +27,11 @@ client = MyERP.client('API_EMAIL', 'API_KEY')
 - 3 - Now you're ready to make authorized API requests to your domain! Data is returned as hashes:
 
 ```ruby
-# Retrieve all customers and leads using pagination
-limit = 100
-page = 0
-loop do
-  response = client.customers.all({ :offset => page * limit, :limit => limit })
-  response.body.each {|customer| puts "#{customer.full_name} [id=#{customer.id}]"}
-  page = page + 1
-  break if !response.nextPage?
-end
+# Retrieve all customers and leads
+puts client.customers.all
 
 # Get a specific customer/lead
-puts client.customers.find(261367).body
+puts client.customers.find(261367)
 
 # Create a customer
 customer = MyERP::Customer.new
@@ -48,25 +41,24 @@ customer.first_name = "John"
 customer.last_name = "Doe"
 customer.email = "john.doe@mail.com"
 
-
-customer = client.customers.save(customer).body
+customer = client.customers.save(customer)
 puts "#{customer.full_name} created [id=#{customer.id}]"
 
 # Update some fields
 customer.first_name = "Jane"
-customer = client.customers.save(customer).body
+customer = client.customers.save(customer)
 puts "#{customer.full_name} updated [id=#{customer.id}]"
 
 # Delete a customer
-customer = client.customers.delete(customer).body
+customer = client.customers.delete(customer)
 puts "#{customer.full_name} deleted [id=#{customer.id}]"
 
 # Bulk creation/modification
-customers = client.customers.bulkSave([customer, customer2]).body
+customers = client.customers.bulkSave([customer, customer2])
 puts customers
 
 # Bulk deletion
-customers = client.customers.delete([customer, customer2]).body
+customers = client.customers.delete([customer, customer2])
 puts customers
 ```
 

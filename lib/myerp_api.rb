@@ -13,7 +13,6 @@ require 'ext/time'
 
 require 'myerp/credentials'
 require 'myerp/errors'
-require 'myerp/response'
 require 'myerp/base'
 
 %w(crud).each {|a| require "myerp/behavior/#{a}"}

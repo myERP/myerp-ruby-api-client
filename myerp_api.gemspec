@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
     "lib/myerp/customer.rb",
     "lib/myerp/errors.rb",
     "lib/myerp/model.rb",
-    "lib/myerp/response.rb",
     "lib/myerp_api.rb",
     "myerp_api.gemspec"
   ]
