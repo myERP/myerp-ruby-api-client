@@ -19,6 +19,56 @@ The myERP API uses ActiveResource to communicate with the REST web service.
 
 - 1 - Retrieve your API_KEY and your API_EMAIL from the API settings. More information [here](http://developers.myerp.com/docs/1.0/overview/security_authentication.html).
 
+- 2 - Initiate the client by:
+
+```ruby
+client = MyERP.client('API_EMAIL', 'API_KEY')
+```
+- 3 - Now you're ready to make authorized API requests to your domain! Data is returned as hashes:
+
+```ruby
+# Retrieve all customers and leads using pagination
+limit = 100
+page = 0
+loop do
+  response = client.customers.all({ :offset => page * limit, :limit => limit })
+  response.body.each {|customer| puts "#{customer.full_name} [id=#{customer.id}]"}
+  page = page + 1
+  break if !response.nextPage?
+end
+
+# Get a specific customer/lead
+puts client.customers.find(261367).body
+
+# Create a customer
+customer = MyERP::Customer.new
+customer.type = 2 #individual
+customer.status = 1 #customer
+customer.first_name = "John"
+customer.last_name = "Doe"
+customer.email = "john.doe@mail.com"
+
+
+customer = client.customers.save(customer).body
+puts "#{customer.full_name} created [id=#{customer.id}]"
+
+# Update some fields
+customer.first_name = "Jane"
+customer = client.customers.save(customer).body
+puts "#{customer.full_name} updated [id=#{customer.id}]"
+
+# Delete a customer
+customer = client.customers.delete(customer).body
+puts "#{customer.full_name} deleted [id=#{customer.id}]"
+
+# Bulk creation/modification
+customers = client.customers.bulkSave([customer, customer2]).body
+puts customers
+
+# Bulk deletion
+customers = client.customers.delete([customer, customer2]).body
+puts customers
+```
 
 ## Contributing
 
