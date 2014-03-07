@@ -1,5 +1,6 @@
 # myERP API
 
+[![Build Status](https://travis-ci.org/myERP/myerp-ruby-api-client.png?branch=master)](https://travis-ci.org/myERP/myerp-ruby-api-client)
 
 The myERP API gem allows Ruby developers to programmatically access the data of myERP accounts.
 
