@@ -53,14 +53,6 @@ puts "#{customer.full_name} updated [id=#{customer.id}]"
 # Delete a customer
 customer = client.customers.delete(customer)
 puts "#{customer.full_name} deleted [id=#{customer.id}]"
-
-# Bulk creation/modification
-customers = client.customers.bulkSave([customer, customer2])
-puts customers
-
-# Bulk deletion
-customers = client.customers.delete([customer, customer2])
-puts customers
 ```
 
 ## Contributing

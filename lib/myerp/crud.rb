@@ -32,21 +32,10 @@ module MyERP
       api_model.parse(resp.parsed_response).first
     end
 
-    def bulkSave(models)
-      raise "array required" unless models.is_a?(Array)
-      resp = request(:put, credentials, "#{api_model.api_path}", :body => models.to_json)
-      api_model.parse(resp.parsed_response)
-    end
-
     def delete(model)
-      if model.is_a?(Array)
-        resp = request(:delete, credentials, "#{api_model.api_path}", :body => model.to_json)
-        api_model.parse(resp.parsed_response)
-      else
-        raise "model unsaved" unless !model.new?
-        resp = request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
-        api_model.parse(resp.parsed_response).first
-      end
+      raise "model unsaved" unless !model.new?
+      resp = request(:delete, credentials, "#{api_model.api_path}/#{model.to_i}")
+      api_model.parse(resp.parsed_response).first
     end
   end
 end
