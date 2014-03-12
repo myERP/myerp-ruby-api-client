@@ -46,18 +46,12 @@ module MyERP
             raise MyERP::AuthenticationFailed.new(response, params)
           when 404
             raise MyERP::NotFound.new(response, params)
-          when 409
-            raise MyERP::Conflict.new(response, params)
-          when 412
-            raise MyERP::MissingField.new(response, params)
           when 422
             raise MyERP::UnprocessableEntity.new(response, params)
           when 429
             raise MyERP::RateLimited.new(response, params)
           when 500
             raise MyERP::ServerError.new(response, params)
-          when 502
-            raise MyERP::Unavailable.new(response, params)
           else
             raise MyERP::HTTPError.new(response, params)
           end

@@ -18,11 +18,8 @@ module MyERP
 
   class RateLimited < HTTPError; end
   class NotFound < HTTPError; end
-  class Unavailable < HTTPError; end
   class BadRequest < HTTPError; end
   class ServerError < HTTPError; end
   class AuthenticationFailed < HTTPError ; end
-  class UnprocessableEntity < HTTPError; end
-  class MissingField < HTTPError; end
-  class Conflict < HTTPError; end
+  class UnprocessableEntity < HTTPError; end 
 end
